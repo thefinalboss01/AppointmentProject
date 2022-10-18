@@ -1,0 +1,36 @@
+{% extends "appointment/base.html" %}
+
+{% block content %}
+<h1 class="w-3/5 text-2xl m-10 font-bold">➕Book An Appointment</h1>
+<form method="POST" class="bg-white shadow-md m-10 px-8 py-8">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-blod mb-2">Full Name</label>
+        <input type="text" class="shadow appearance-none border rounded py-3 px-3 mr-10 text-gray-700" name="name" id="name" placeholder="Shyam Bahadur">
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-blod mb-2">Age</label>
+        <input type="number" class="shadow appearance-none border rounded py-3 px-3 mr-10 text-gray-700" name="age" id="age" placeholder="25">
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-blod mb-2">Gender</label>
+        <select name="gender" id="gender">
+            {% for gender in genders %}
+                <option value="{{gender.name}}">{{gender.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-blod mb-2">Date</label>
+        <input type="date" class="shadow appearance-none border rounded py-3 px-3 mr-10 text-gray-700" name="date" id="date">
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-blod mb-2">Helath Issue Description</label>
+        <textarea name="desc" id="desc" cols="60" rows="10" class="shadow appearance-none border rounded py-3 px-3 mr-10 text-gray-700"></textarea>
+    </div>
+    <div class='mb-4'>
+        <input class="bg-green-500 text-white px-5 py-2" type="submit" name="Add Product" value="Book Appointment">
+    </div>
+</form>
+
+{% endblock content %}

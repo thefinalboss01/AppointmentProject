@@ -1,0 +1,20 @@
+{% extends "appointment/base.html" %}
+
+{% block content %}
+    <div>
+        <ul class='flex'>
+            {% for doctor in doctors %}
+                
+                    <div class='m-8'>
+                        <img class='w-full' src="{{doctor.user.image.url}}" alt="">
+                        {{doctor.user.image.url}}
+                        <h1 class="text-red-800 font-bold text-center">Dr.{{doctor.user.user.username}}</h1>
+
+                    </div>
+                
+            {% endfor %}
+
+        </ul>
+    </div>
+
+{% endblock content %}
